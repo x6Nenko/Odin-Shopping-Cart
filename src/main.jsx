@@ -3,16 +3,29 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from './App.jsx'
 import Shop from './Shop.jsx'
+import Header from './components/Header.jsx';
 import './index.css'
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: 
+    <>
+      <div className='wrapper'>
+        <Header />
+        <App />
+      </div>
+    </>,
   },
   {
     path: "shop",
-    element: <Shop />,
+    element: 
+    <>
+      <div className='wrapper'>
+        <Header />
+        <Shop />
+      </div>
+    </>,
   },
 ]);
 
