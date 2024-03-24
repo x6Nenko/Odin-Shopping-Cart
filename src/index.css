@@ -36,3 +36,39 @@ nav {
   display: flex;
   gap: 32px;
 }
+
+/* ========== CARD ========== */
+
+.cards-section {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+.card-container {
+  max-width: 50%;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card-header {
+  display: flex;
+  gap: 32px;
+}
+
+.card-header p {
+
+}
+
+.card-footer {
+
+}
+
+.image-container {
+  width: 200px;
+  height: 200px;
+}
