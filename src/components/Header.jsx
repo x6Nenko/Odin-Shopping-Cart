@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom"
+import PropTypes from 'prop-types';
 
-const Header = () => {
+const Header = ({ amount }) => {
   return (
     <header>
       <nav>
@@ -29,12 +30,16 @@ const Header = () => {
               isActive ? "active" : ""
             }
           >
-            Cart
+            Cart ({amount})
           </NavLink>
         </div>
       </nav>
     </header>
   )
 }
+
+Header.propTypes = {
+  amount: PropTypes.number.isRequired,
+};
 
 export default Header

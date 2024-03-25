@@ -10,6 +10,7 @@ function App() {
   const data = useData('https://fakestoreapi.com/products/category/jewelery');
   const [jeweleryData, setJeweleryData] = useState();
   const [cart, setCart] = useState([]);
+  console.log(cart);
 
   useEffect(() => {
     if (data) {
@@ -20,7 +21,7 @@ function App() {
   console.log(jeweleryData);
   return (
     <div className="wrapper">
-      <Header />
+      <Header amount={cart.length} />
       {location.pathname === "/" && <Home />}
       <Outlet context={{
         jeweleryData: jeweleryData,
