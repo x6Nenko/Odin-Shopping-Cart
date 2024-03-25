@@ -2,8 +2,11 @@ import ProductCard from "./components/ProductCard";
 import { useOutletContext } from "react-router-dom";
 
 const Shop = () => {
-  const jeweleryData = useOutletContext();
-  console.log(jeweleryData);
+  const { jeweleryData, cart, setCart } = useOutletContext();
+
+  function btnHandler(item) {
+    setCart([...cart, {itemId: item.id, amount: 1}])
+  }
 
   return (
     <>
@@ -11,7 +14,8 @@ const Shop = () => {
         {jeweleryData && jeweleryData.map(item => (
           <ProductCard 
             itemData={item}
-            key={item.title}
+            key={item.id}
+            addToCartBtn={btnHandler}
           />
         ))}
       </section>

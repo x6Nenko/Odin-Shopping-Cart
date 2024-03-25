@@ -9,6 +9,7 @@ function App() {
 
   const data = useData('https://fakestoreapi.com/products/category/jewelery');
   const [jeweleryData, setJeweleryData] = useState();
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     if (data) {
@@ -21,7 +22,11 @@ function App() {
     <div className="wrapper">
       <Header />
       {location.pathname === "/" && <Home />}
-      <Outlet context={jeweleryData}/>
+      <Outlet context={{
+        jeweleryData: jeweleryData,
+        cart: cart,
+        setCart: setCart,
+      }}/>
     </div>
   )
 }
