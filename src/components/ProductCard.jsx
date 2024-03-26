@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
-const ProductCard = ({ itemData, addToCartBtn, isInCart }) => {
+const ProductCard = ({ itemData, addToCartBtn, isInCart, cartItemInfo, decreaseBtn }) => {
+  console.log(cartItemInfo.length > 0 && cartItemInfo[0].itemId);
   return (
     <article className="card-container">
       <div className='card-header'>
@@ -22,8 +23,15 @@ const ProductCard = ({ itemData, addToCartBtn, isInCart }) => {
 
       <div className='cardFooter'>
         {itemData.price}$
-        <button onClick={() => addToCartBtn(itemData)}>Add to cart</button>
-        {isInCart && "in cart"}
+        {isInCart ? 
+          <div className='amount-control-container'>
+            <button onClick={() => decreaseBtn(itemData)}>-</button>
+            <p>{cartItemInfo[0].amount}</p>
+            <button onClick={() => addToCartBtn(itemData)}>+</button>
+          </div>
+        :
+          <button onClick={() => addToCartBtn(itemData)}>Add to cart</button>
+        }
       </div>
     </article>
   )
@@ -38,6 +46,8 @@ ProductCard.propTypes = {
   }).isRequired,
   addToCartBtn: PropTypes.func.isRequired,
   isInCart: PropTypes.bool.isRequired,
+  cartItemInfo: PropTypes.array,
+  decreaseBtn: PropTypes.func.isRequired,
 };
 
 export default ProductCard

@@ -37,7 +37,7 @@ nav {
   gap: 32px;
 }
 
-/* ========== CARD ========== */
+/* ========== PRODUCT CARD ========== */
 
 .cards-section {
   display: flex;
@@ -63,6 +63,15 @@ nav {
 .image-container {
   width: 200px;
   height: 200px;
+}
+
+.amount-control-container {
+  display: flex;
+  gap: 16px;
+}
+
+.amount-control-container button {
+  padding: 4px;
 }
 
 /* ========== CART ========== */
