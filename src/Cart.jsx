@@ -2,14 +2,14 @@ import { useOutletContext } from "react-router-dom";
 import CartItem from "./components/CartItem";
 
 const Cart = () => {
-  const { jeweleryData, cart, setCart } = useOutletContext();
-  console.log(cart);
+  const { cart } = useOutletContext();
 
   return (
     <section>
       {cart && cart.map(item => ( 
         <CartItem 
-
+          item={item}
+          key={item.itemId}
         />
       ))}
     </section>

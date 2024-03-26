@@ -72,3 +72,10 @@ nav {
   width: 200px;
   height: 200px;
 }
+
+/* ========== CART ========== */
+
+.cart-image-container {
+  width: 64px;
+  height: 64px;
+}

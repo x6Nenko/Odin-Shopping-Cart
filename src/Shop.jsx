@@ -5,7 +5,22 @@ const Shop = () => {
   const { jeweleryData, cart, setCart } = useOutletContext();
 
   function btnHandler(item) {
-    setCart([...cart, {itemId: item.id, amount: 1}])
+    if (!cart.some(cartItem => cartItem.itemId === item.id)) {
+      // there is no such item yet"
+      return setCart([...cart, {itemId: item.id, title: item.title, image: item.image, singlePrice: item.price, allPrice: item.price, amount: 1}]);
+    }
+
+    const newArr = cart.map(cartItem => {
+      if (cartItem.itemId === item.id) {
+        // modify already existing item"
+        return {...cartItem, amount: cartItem.amount + 1, allPrice: cartItem.allPrice + cartItem.singlePrice}
+      } else {
+        // keep the item with no changes
+        return cartItem
+      }
+    })
+
+    setCart(newArr)
   }
 
   return (
