@@ -14,7 +14,7 @@ const Shop = () => {
     const newArr = cart.map(cartItem => {
       if (cartItem.itemId === item.id) {
         // modify already existing item"
-        return {...cartItem, amount: cartItem.amount + 1, allPrice: cartItem.allPrice + cartItem.singlePrice}
+        return {...cartItem, amount: cartItem.amount + 1, allPrice: Math.round((cartItem.allPrice + cartItem.singlePrice) * 100) / 100}
       } else {
         // keep the item with no changes
         return cartItem
@@ -32,7 +32,7 @@ const Shop = () => {
           return null;
         }
         // modify already existing item"
-        return {...cartItem, amount: cartItem.amount - 1, allPrice: cartItem.allPrice - cartItem.singlePrice}
+        return {...cartItem, amount: cartItem.amount - 1, allPrice: Math.round((cartItem.allPrice - cartItem.singlePrice) * 100) / 100}
       } else {
         // keep the item with no changes
         return cartItem
