@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 
 const ProductCard = ({ itemData, addToCartBtn, removeFromCartBtn, isInCart, cartItemInfo, decreaseBtn }) => {
-  console.log(cartItemInfo.length > 0 && cartItemInfo[0].itemId);
   return (
     <article className="card-container">
       <div className='card-header'>
