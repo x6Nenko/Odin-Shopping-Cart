@@ -42,6 +42,20 @@ const Shop = () => {
     setCart(newArr);
   }
 
+  function handleRemoveBtn(item) {
+    const newArr = cart.map(cartItem => {
+      if (cartItem.itemId === item.id) {
+        // delete item from cart part 1 (part 2 is filter below)
+        return null;
+      } else {
+        // keep the item with no changes
+        return cartItem
+      }
+    }).filter(item => item !== null);
+
+    setCart(newArr);
+  }
+
   return (
     <>
       <section className="cards-section">
@@ -50,6 +64,7 @@ const Shop = () => {
             itemData={item}
             key={item.id}
             addToCartBtn={handleAddBtn}
+            removeFromCartBtn={handleRemoveBtn}
             isInCart={matchingItem(cart, item.id).length > 0}
             cartItemInfo={matchingItem(cart, item.id)}
             decreaseBtn={handleDecreaseBtn}

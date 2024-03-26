@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const ProductCard = ({ itemData, addToCartBtn, isInCart, cartItemInfo, decreaseBtn }) => {
+const ProductCard = ({ itemData, addToCartBtn, removeFromCartBtn, isInCart, cartItemInfo, decreaseBtn }) => {
   console.log(cartItemInfo.length > 0 && cartItemInfo[0].itemId);
   return (
     <article className="card-container">
@@ -24,13 +24,16 @@ const ProductCard = ({ itemData, addToCartBtn, isInCart, cartItemInfo, decreaseB
       <div className='cardFooter'>
         {itemData.price}$
         {isInCart ? 
+          <button onClick={() => removeFromCartBtn(itemData)}>Remove from the cart</button>
+        :
+          <button onClick={() => addToCartBtn(itemData)}>Add to cart</button>
+        }
+        {isInCart && 
           <div className='amount-control-container'>
             <button onClick={() => decreaseBtn(itemData)}>-</button>
             <p>{cartItemInfo[0].amount}</p>
             <button onClick={() => addToCartBtn(itemData)}>+</button>
           </div>
-        :
-          <button onClick={() => addToCartBtn(itemData)}>Add to cart</button>
         }
       </div>
     </article>
@@ -45,6 +48,7 @@ ProductCard.propTypes = {
     price: PropTypes.number.isRequired,
   }).isRequired,
   addToCartBtn: PropTypes.func.isRequired,
+  removeFromCartBtn: PropTypes.func.isRequired,
   isInCart: PropTypes.bool.isRequired,
   cartItemInfo: PropTypes.array,
   decreaseBtn: PropTypes.func.isRequired,
