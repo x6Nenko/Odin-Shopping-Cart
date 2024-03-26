@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const ProductCard = ({ itemData, addToCartBtn }) => {
+const ProductCard = ({ itemData, addToCartBtn, isInCart }) => {
   return (
     <article className="card-container">
       <div className='card-header'>
@@ -23,6 +23,7 @@ const ProductCard = ({ itemData, addToCartBtn }) => {
       <div className='cardFooter'>
         {itemData.price}$
         <button onClick={() => addToCartBtn(itemData)}>Add to cart</button>
+        {isInCart && "in cart"}
       </div>
     </article>
   )
@@ -36,6 +37,7 @@ ProductCard.propTypes = {
     price: PropTypes.number.isRequired,
   }).isRequired,
   addToCartBtn: PropTypes.func.isRequired,
+  isInCart: PropTypes.bool.isRequired,
 };
 
 export default ProductCard

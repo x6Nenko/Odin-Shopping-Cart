@@ -1,5 +1,6 @@
 import ProductCard from "./components/ProductCard";
 import { useOutletContext } from "react-router-dom";
+import { isMatchingItems } from "./utils/utils";
 
 const Shop = () => {
   const { jeweleryData, cart, setCart } = useOutletContext();
@@ -31,6 +32,7 @@ const Shop = () => {
             itemData={item}
             key={item.id}
             addToCartBtn={btnHandler}
+            isInCart={isMatchingItems(cart, item.id)}
           />
         ))}
       </section>
