@@ -6,6 +6,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: #121212;
 }
 
 body {
@@ -23,6 +24,7 @@ body {
 
 header {
   padding: 16px 0;
+  margin-bottom: 16px;
 }
 
 nav {
@@ -41,18 +43,33 @@ nav {
 
 .cards-section {
   display: flex;
-  flex-direction: column;
-  gap: 64px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 32px;
 }
 
 .card-container {
-  max-width: 50%;
+  border: 1px solid #8d8d8d;
+  border-radius: 16px;
+  padding: 32px;
+  width: 48%;
+  min-width: 320px;
+  height: fit-content;
 }
 
 .card-info {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+.card-info h2 {
+  font-weight: 500;
+}
+
+.card-info p {
+  font-size: 14px;
+  color: #3d3d3d;
 }
 
 .card-header {
@@ -67,11 +84,62 @@ nav {
 
 .amount-control-container {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 16px;
+  margin-top: 16px;
 }
 
 .amount-control-container button {
-  padding: 4px;
+  cursor: pointer;
+  border-radius: 100px;
+  height: 32px;
+  width: 32px;
+  border: none;
+  background-color: #121212;
+  color: #f5f5f5;
+  transition: background-color .2s ease-in;
+}
+
+.amount-control-container button:hover, .amount-control-container button:focus {
+  background-color: #2b2b2b;
+}
+
+.card-footer {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #cacaca;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-footer span {
+  width: 200px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 32px;
+}
+
+.btns-container {
+  width: calc(100% - 232px);
+}
+
+.remove-btn, .add-btn {
+  margin-top: 4px;
+  cursor: pointer;
+  border: 1px solid #121212;
+  background-color: #121212;
+  color: #f5f5f5;
+  border-radius: 100px;
+  padding: 10px;
+  display: block;
+  width: 100%;
+  transition: all .2s ease-in;
+}
+
+.remove-btn:hover, .add-btn:hover, .remove-btn:focus, .add-btn:focus {
+  background-color: #f5f5f5;
+  color: #121212;
 }
 
 /* ========== CART ========== */

@@ -20,20 +20,22 @@ const ProductCard = ({ itemData, addToCartBtn, removeFromCartBtn, isInCart, cart
         </div>
       </div>
 
-      <div className='cardFooter'>
-        {itemData.price}$
-        {isInCart ? 
-          <button onClick={() => removeFromCartBtn(itemData)}>Remove from the cart</button>
-        :
-          <button onClick={() => addToCartBtn(itemData)}>Add to cart</button>
-        }
-        {isInCart && 
-          <div className='amount-control-container'>
-            <button onClick={() => decreaseBtn(itemData)}>-</button>
-            <p>{cartItemInfo[0].amount}</p>
-            <button onClick={() => addToCartBtn(itemData)}>+</button>
-          </div>
-        }
+      <div className='card-footer'>
+        <span>{itemData.price}$</span>
+        <div className='btns-container'>
+          {isInCart ? 
+            <button onClick={() => removeFromCartBtn(itemData)} className='remove-btn'>Remove from the cart</button>
+          :
+            <button onClick={() => addToCartBtn(itemData)} className='add-btn'>Add to cart</button>
+          }
+          {isInCart && 
+            <div className='amount-control-container'>
+              <button onClick={() => decreaseBtn(itemData)}>-</button>
+              <p>{cartItemInfo[0].amount}</p>
+              <button onClick={() => addToCartBtn(itemData)}>+</button>
+            </div>
+          }
+        </div>
       </div>
     </article>
   )
