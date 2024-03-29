@@ -1,8 +1,11 @@
 import { useOutletContext } from "react-router-dom";
+import { countTotalPrice } from "./utils/utils";
 import CartItem from "./components/CartItem";
 
 const Cart = () => {
   const { cart, setCart } = useOutletContext();
+
+  console.log(cart);
   
   function handleAddBtn(item) {
     const newArr = cart.map(cartItem => {
@@ -51,7 +54,7 @@ const Cart = () => {
   }
 
   return (
-    <section>
+    <section className="cart-item-section">
       {cart && cart.map(item => ( 
         <CartItem 
           item={item}
@@ -61,6 +64,10 @@ const Cart = () => {
           decreaseBtn={handleDecreaseBtn}
         />
       ))}
+      <article className="summary">
+        <p className="total-price">Total price: {countTotalPrice(cart)}$</p>
+        <button className="checkout-btn">Checkout</button>
+      </article>
     </section>
   )
 }

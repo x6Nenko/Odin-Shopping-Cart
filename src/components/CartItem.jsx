@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 const CartItem = ({ item, increaseBtn, removeFromCartBtn, decreaseBtn }) => {
   return (
-    <article>
+    <article className='cart-item'>
       <div className='cart-image-container'>
         <img 
           src={item.image}
@@ -11,15 +11,19 @@ const CartItem = ({ item, increaseBtn, removeFromCartBtn, decreaseBtn }) => {
           height={64}
         />
       </div>
-      <h3>{item.title}</h3>
-      <p>One item price: {item.singlePrice}$</p>
-      <p>Full price: {item.allPrice}$</p>
-      <div className='amount-control-container'>
-        <button onClick={() => decreaseBtn(item)}>-</button>
-        <p>{item.amount}</p>
-        <button onClick={() => increaseBtn(item)}>+</button>
+      <div>
+        <h3>{item.title}</h3>
+        <p>One item price: {item.singlePrice}$</p>
+        <p>Full price: {item.allPrice}$</p>
       </div>
-      <button onClick={() => removeFromCartBtn(item)}>Remove from the cart</button>
+      <div className='cart-item-buttons'>
+        <div className='amount-control-container'>
+          <button onClick={() => decreaseBtn(item)}>-</button>
+          <p>{item.amount}</p>
+          <button onClick={() => increaseBtn(item)}>+</button>
+        </div>
+        <button onClick={() => removeFromCartBtn(item)} className='cart-remove'>X</button>
+      </div>
     </article>
   )
 }

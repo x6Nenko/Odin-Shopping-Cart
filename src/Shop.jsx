@@ -57,21 +57,19 @@ const Shop = () => {
   }
 
   return (
-    <>
-      <section className="cards-section">
-        {jeweleryData && jeweleryData.map(item => (
-          <ProductCard 
-            itemData={item}
-            key={item.id}
-            addToCartBtn={handleAddBtn}
-            removeFromCartBtn={handleRemoveBtn}
-            isInCart={matchingItem(cart, item.id).length > 0}
-            cartItemInfo={matchingItem(cart, item.id)}
-            decreaseBtn={handleDecreaseBtn}
-          />
-        ))}
-      </section>
-    </>
+    <section className="cards-section">
+      {jeweleryData && jeweleryData.map(item => (
+        <ProductCard 
+          itemData={item}
+          key={item.id}
+          addToCartBtn={handleAddBtn}
+          removeFromCartBtn={handleRemoveBtn}
+          isInCart={matchingItem(cart, item.id).length > 0}
+          cartItemInfo={matchingItem(cart, item.id)}
+          decreaseBtn={handleDecreaseBtn}
+        />
+      ))}
+    </section>
   )
 }
 
