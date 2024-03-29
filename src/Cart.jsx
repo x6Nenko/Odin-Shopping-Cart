@@ -55,6 +55,7 @@ const Cart = () => {
 
   return (
     <section className="cart-item-section">
+      {cart.length === 0 && <h3>Cart is empty yet...</h3>}
       {cart && cart.map(item => ( 
         <CartItem 
           item={item}
@@ -64,10 +65,12 @@ const Cart = () => {
           decreaseBtn={handleDecreaseBtn}
         />
       ))}
-      <article className="summary">
-        <p className="total-price">Total price: {countTotalPrice(cart)}$</p>
-        <button className="checkout-btn">Checkout</button>
-      </article>
+      {cart.length !== 0 && 
+        <article className="summary">
+          <p className="total-price">Total price: {countTotalPrice(cart)}$</p>
+          <button className="checkout-btn">Checkout</button>
+        </article>
+      }
     </section>
   )
 }
