@@ -5,6 +5,6 @@ import Home from "../src/Home";
 describe("Home component", () => {
   it("renders correct heading", () => {
     render(<Home />);
-    expect(screen.getByRole("heading").textContent).toMatch(/home/i);
+    expect(screen.getByRole("heading").textContent).toMatch(/Premium Jewelery Shop/i);
   });
 });

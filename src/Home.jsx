@@ -1,6 +1,11 @@
+import { Link } from "react-router-dom"
+
 const Home = () => {
   return (
-    <div><h1>Home</h1></div>
+    <div className="home-container">
+      <h1>Premium Jewelery Shop</h1>
+      <Link to={'shop'} className="shop-btn">Shop Now</Link>
+    </div>
   )
 }
 

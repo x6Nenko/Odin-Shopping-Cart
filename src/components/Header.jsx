@@ -8,7 +8,7 @@ const Header = ({ amount }) => {
         <NavLink
           to="/"
           className={({ isActive }) =>
-            isActive ? "active" : ""
+            isActive ? "active nav-link" : "nav-link"
           }
         >
           LOGO
@@ -18,7 +18,7 @@ const Header = ({ amount }) => {
           <NavLink
             to="/shop"
             className={({ isActive }) =>
-              isActive ? "active" : ""
+              isActive ? "active nav-link" : "nav-link"
             }
           >
             Shop
@@ -27,7 +27,7 @@ const Header = ({ amount }) => {
           <NavLink
             to="/cart"
             className={({ isActive }) =>
-              isActive ? "active" : ""
+              isActive ? "active nav-link" : "nav-link"
             }
           >
             Cart ({amount})
