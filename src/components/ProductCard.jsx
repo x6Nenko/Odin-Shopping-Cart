@@ -9,8 +9,6 @@ const ProductCard = ({ itemData, addToCartBtn, removeFromCartBtn, isInCart, cart
             src={itemData.image}
             alt=""
             className="card-img"
-            width={200}
-            height={200}
           />
         </div>
 
