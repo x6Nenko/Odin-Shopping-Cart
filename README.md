@@ -1,8 +1,11 @@
-# React + Vite
+## Project tasks.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [x] Include:
+    - Home page,
+    - Shop page (+ individual card elements for each product),
+    - Shopping cart (+ checkout button),
+    - Navigation bar (+ display the number of items currently in the cart).
+- [x] Product card has add to cart, increment and decrement buttons.
+- [x] Fetch shop items from FakeStore API.
+- [x] Once a user has submitted their order, the amount on the cart itself should adjust accordingly.
+- [x] Involve React Testing Library.
